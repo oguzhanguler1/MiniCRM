@@ -30,6 +30,10 @@
         {
             dataGridView1 = new DataGridView();
             btnList = new Button();
+            txtName = new TextBox();
+            txtPhone = new TextBox();
+            btnAdd = new Button();
+            btnDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -51,22 +55,67 @@
             btnList.UseVisualStyleBackColor = true;
             btnList.Click += button1_Click;
             // 
+            // txtName
+            // 
+            txtName.Location = new Point(563, 64);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(189, 23);
+            txtName.TabIndex = 2;
+            txtName.TextChanged += txtName_TextChanged;
+            // 
+            // txtPhone
+            // 
+            txtPhone.Location = new Point(563, 93);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(189, 23);
+            txtPhone.TabIndex = 3;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(677, 133);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 4;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(190, 234);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 5;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(btnAdd);
+            Controls.Add(txtPhone);
+            Controls.Add(txtName);
             Controls.Add(btnList);
             Controls.Add(dataGridView1);
             Name = "MainForm";
             Text = "MainForm";
+            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView1;
         private Button btnList;
+        private TextBox txtName;
+        private TextBox txtPhone;
+        private Button btnAdd;
+        private Button btnDelete;
     }
 }

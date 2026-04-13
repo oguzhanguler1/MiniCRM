@@ -31,5 +31,26 @@ namespace MiniCRM.Services
 
 
 
+        public void Delete(int id)
+        {
+            using (var context = new AppDbContext())
+            {
+                var customer = context.Customers.FirstOrDefault(c => c.Id == id);
+
+                if (customer != null)
+                {
+                    context.Customers.Remove(customer);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+
+
+
+
+
+
+
     }
 }

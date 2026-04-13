@@ -1,4 +1,5 @@
-﻿using MiniCRM.Services;
+﻿using MiniCRM.Models;
+using MiniCRM.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,77 @@ namespace MiniCRM.Forms
             var customers = service.GetAll();
 
             dataGridView1.DataSource = customers;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurun");
+                return;
+            }
+
+
+
+
+
+
+            var customer = new Customer
+            {
+                Name = txtName.Text,
+                Phone = txtPhone.Text,
+            };
+
+            var customerService = new CustomerService();
+
+            customerService.Add(customer);
+
+
+
+            dataGridView1.DataSource = customerService.GetAll();
+
+
+            txtName.Text = "";
+            txtPhone.Text = "";
+
+
+            MessageBox.Show("Customer Added");
+
+
+
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Please select to delete customer");
+                return;
+            }
+
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+
+            var service = new CustomerService();
+            service.Delete(id);
+
+            dataGridView1.DataSource = service.GetAll();
+
+            MessageBox.Show("Customer Deleted");
+
+
+
         }
     }
 }
