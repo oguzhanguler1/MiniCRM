@@ -95,5 +95,46 @@ namespace MiniCRM.Forms
 
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.CurrentRow == null ||
+                string.IsNullOrWhiteSpace(txtName.Text) ||
+                string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                MessageBox.Show("Lütfen bir müşteri seçin ve alanları doldurun");
+                return;
+            }
+
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+
+            var customer = new Customer
+            {
+                Id = id,
+                Name = txtName.Text,
+                Phone = txtPhone.Text
+            };
+
+            var service = new CustomerService();
+            service.Update(customer);
+
+            dataGridView1.DataSource = service.GetAll();
+
+            txtName.Text = "";
+            txtPhone.Text = "";
+
+            MessageBox.Show("Müşteri güncellendi");
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            txtName.Text = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value?.ToString() ?? "";
+            txtPhone.Text = dataGridView1.Rows[e.RowIndex].Cells["Phone"].Value?.ToString() ?? "";
+        }
     }
 }

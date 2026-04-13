@@ -34,6 +34,7 @@
             txtPhone = new TextBox();
             btnAdd = new Button();
             btnDelete = new Button();
+            btnUpdate = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(240, 150);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // btnList
             // 
@@ -90,11 +92,22 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(584, 133);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(75, 23);
+            btnUpdate.TabIndex = 6;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnUpdate);
             Controls.Add(btnDelete);
             Controls.Add(btnAdd);
             Controls.Add(txtPhone);
@@ -117,5 +130,6 @@
         private TextBox txtPhone;
         private Button btnAdd;
         private Button btnDelete;
+        private Button btnUpdate;
     }
 }

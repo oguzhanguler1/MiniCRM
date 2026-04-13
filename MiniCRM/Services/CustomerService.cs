@@ -31,6 +31,28 @@ namespace MiniCRM.Services
 
 
 
+        public void Update(Customer updatedCustomer)
+        {
+            using (var context = new AppDbContext())
+            {
+                var customer = context.Customers.Find(updatedCustomer.Id);
+
+                if (customer != null)
+                {
+                    customer.Name = updatedCustomer.Name;
+                    customer.Phone = updatedCustomer.Phone;
+
+                    context.SaveChanges();
+                }
+            }
+        }
+
+
+
+
+
+
+
         public void Delete(int id)
         {
             using (var context = new AppDbContext())
