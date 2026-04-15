@@ -41,9 +41,22 @@ namespace MiniCRM.Services
                 {
                     customer.Name = updatedCustomer.Name;
                     customer.Phone = updatedCustomer.Phone;
+                    customer.Email = updatedCustomer.Email;
+                    customer.Address = updatedCustomer.Address;
+
 
                     context.SaveChanges();
                 }
+            }
+        }
+
+        public List<Customer> Search(string searchText)
+        {
+            using (var context = new AppDbContext())
+            {
+                return context.Customers
+                    .Where(c => c.Name.Contains(searchText) || c.Phone.Contains(searchText))
+                    .ToList();
             }
         }
 

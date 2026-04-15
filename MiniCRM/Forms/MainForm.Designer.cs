@@ -28,108 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            btnList = new Button();
-            txtName = new TextBox();
-            txtPhone = new TextBox();
-            btnAdd = new Button();
-            btnDelete = new Button();
-            btnUpdate = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnCustomer = new Button();
+            btnOrder = new Button();
             SuspendLayout();
             // 
-            // dataGridView1
+            // btnCustomer
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(118, 52);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(240, 150);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            btnCustomer.Location = new Point(92, 78);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(270, 23);
+            btnCustomer.TabIndex = 0;
+            btnCustomer.Text = "Customer Page";
+            btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.Click += btnCustomer_Click;
             // 
-            // btnList
+            // btnOrder
             // 
-            btnList.Location = new Point(283, 234);
-            btnList.Name = "btnList";
-            btnList.Size = new Size(75, 23);
-            btnList.TabIndex = 1;
-            btnList.Text = "List";
-            btnList.UseVisualStyleBackColor = true;
-            btnList.Click += button1_Click;
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(563, 64);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(189, 23);
-            txtName.TabIndex = 2;
-            txtName.TextChanged += txtName_TextChanged;
-            // 
-            // txtPhone
-            // 
-            txtPhone.Location = new Point(563, 93);
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(189, 23);
-            txtPhone.TabIndex = 3;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(677, 133);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 4;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(190, 234);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(75, 23);
-            btnDelete.TabIndex = 5;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
-            // 
-            // btnUpdate
-            // 
-            btnUpdate.Location = new Point(584, 133);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(75, 23);
-            btnUpdate.TabIndex = 6;
-            btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += btnUpdate_Click;
+            btnOrder.Location = new Point(92, 129);
+            btnOrder.Name = "btnOrder";
+            btnOrder.Size = new Size(270, 23);
+            btnOrder.TabIndex = 1;
+            btnOrder.Text = "Order Page";
+            btnOrder.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnUpdate);
-            Controls.Add(btnDelete);
-            Controls.Add(btnAdd);
-            Controls.Add(txtPhone);
-            Controls.Add(txtName);
-            Controls.Add(btnList);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnOrder);
+            Controls.Add(btnCustomer);
             Name = "MainForm";
             Text = "MainForm";
             Load += MainForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private Button btnList;
-        private TextBox txtName;
-        private TextBox txtPhone;
-        private Button btnAdd;
-        private Button btnDelete;
-        private Button btnUpdate;
+        private Button btnCustomer;
+        private Button btnOrder;
     }
 }
